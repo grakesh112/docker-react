@@ -1,0 +1,10 @@
+sude: required
+language: generic
+services:
+  - docker
+
+before_install:
+  - docker build -t grakesh112/docker-react:latest -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true grakesh112/docker-react npm run test
